@@ -1,7 +1,7 @@
 # CSE151AGroupProject
 Group Project for 151a
 
-Last updated 2/10/2024 at 1:04 PM
+Last updated 2/10/2024 at 2:29 PM
 
 Group Members: 
 
@@ -18,12 +18,14 @@ Joseph Kan <jokan@ucsd.edu>
 
 
 ***** INTRODUCTION *****
+
 We ended up picking the "U.S. Government Revenue Collections" dataset from
 Kaggle. Our model's target remains the same: predicting future revenue 
 collections based on the model's features.
 
 
 ***** PREPROCESSING *****
+
 Our data was relatively clean, so there wasn't too much to do here. 
 We checked for null values (of which there were none), dropped duplicates, 
 and got rid of columns that were redundant. The electronic category 
@@ -40,6 +42,7 @@ fiscal data was evenly distributed, so we could useit without further preprocess
 
 
 ***** DATA EXPLORATION *****
+
 We became "one with the data." Shapes, data types, unique values per feature, unique days,
 entries per year, net collections amount by year, net collections amount by electronic 
 category, channel type, and tax category, etc. etc. etc. 
