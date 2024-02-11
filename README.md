@@ -1,6 +1,6 @@
 # CSE151AGroupProject
 
-Group Project for 151a
+Group Project for 151A
 
 Last updated 2/10/2024 at 2:52 PM
 
