@@ -76,3 +76,7 @@ decreased in magnitude.
 Or, it could just be some outlier bending our curve. It might be tempting to interpret these graphs based on income, but these collections
 cover a lot more than just income tax. Our future work in prediction modeling may reveal more about the root cause of this trend.
 (We could also do extra work that involves more datasets, but that's beyond the scope of this project.)
+
+<a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_2_final.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
