@@ -83,6 +83,8 @@ For our first model we attempted to use linear regression in predicting net coll
 
 To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Additionaly, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance.
 
+Additionally, it could be beneficial to encode net collection amounts into classes (ex. $1000-$10000, $10001-$50000, $50000+, etc.), turning this into a classification problem. We could then use neural networks and perceptrons as our model to predict which range of values each observation falls under. With this, we could also tune this model using the hyperparameter tuning techniques mentioned above.
+
 <a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
