@@ -2,7 +2,7 @@
 
 Group Project for 151A
 
-Last updated 2/10/2024 at 2:52 PM
+Last updated 2/25/2024 at 3:53 PM
 
 ## Group Members:
 
@@ -44,7 +44,7 @@ dropped that too. We discretized our record dates as datetime objects by # of da
 (For example, the oldest entry is at day 0, and the latest entry is at day 7026)
 We made sure that each duplicate column matched one another before deleting them.
 
-We first wanted to see how fiscal quarters were related to eachother by year.
+We first wanted to see how fiscal quarters were related to each other by year.
 Finding a "not large" standard deviation between quarters, we decided that this
 fiscal data was evenly distributed, so we could use it without further preprocessing.
 
@@ -58,7 +58,7 @@ We then shoved all of these into a heatmap to look for correlations between feat
 that net collections amount is correlated pretty strongly with the different category IDs,
 which tells us that certain categories of transaction give more revenue that others. A couple
 bar charts reveal that a majority of revenue is associated with certain categorical descriptions.
-This makes sense intuitively: certain avenues are more profitable that others.
+This makes sense intuitively: certain avenues are more profitable than others.
 Correlating these descriptions could help us make predictions!
 
 We then made a scatterplot of all net collections amount by date. This only tells us that a majority
@@ -70,7 +70,7 @@ Is this commensurate with growing income inequality? Or maybe the government got
 Investigating further, we made a line-plot of average net collections amount by fiscal year. This showed a linear increase
 atmosphere, which we shall do sparsely: the impact of COVID-19 caused a temporary recession followed by massive growth in the upper
 quartiles of wealth and industry. (Amazon and Zoom, for example, thrived in this period.) This was not without a cost: income
-inequality grew drastically, so while the economy grew, people got _poorer_- meaning the large number of concentrated small collections
+inequality grew dramatically, so while the economy grew, people got _poorer_- meaning the large number of concentrated small collections
 decreased in magnitude.
 
 Or, it could just be some outlier bending our curve. It might be tempting to interpret these graphs based on income, but these collections
@@ -81,10 +81,11 @@ cover a lot more than just income tax. Our future work in prediction modeling ma
 
 For our first model we attempted to use linear regression in predicting net collections amount. As evidenced by the high MSE and MAE values, while the model is a good starting point, it needs refinement to improve its predictive accuracy. Since both the training and testing errors were high, our first model is most likely underfitting.
 
-To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Additionaly, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance. An ANN model would also be a potential solution, where hyperparameter tuning can again be applied to test out different activations and layer parameters.
+To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Furthermore, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance. An ANN model would also be a potential solution, where hyperparameter tuning can again be applied to test out different activations and layer parameters.
 
-Additionally, it could be beneficial to encode net collection amounts into classes (ex. $1000-$10000, $10001-$50000, $50000+, etc.), turning this into a classification problem. This could prove to be more accurate since instead of predicting continuous values, the model would simply have to predict which range the collection amount would fall under. We could then use neural networks and perceptrons as our model to predict which range of values each observation falls under. With this, we could also tune this model using the hyperparameter tuning techniques mentioned above.
+Moreover, it could be beneficial to encode net collection amounts into classes (ex. $1000-$10000, $10001-$50000, $50000+, etc.), turning this into a classification problem. This could prove to be more accurate since instead of predicting continuous values, the model would simply have to predict which range the collection amount would fall under. We could then use neural networks and perceptrons as our model to predict which range of values each observation falls under. With this, we could also tune this model using the hyperparameter tuning techniques mentioned above. Indeed, encoding net collection amounts into classes for classification could offer a more accurate prediction framework.
 
+Overall, our findings provide valuable insights for policymakers and researchers interested in forecasting government revenue collections, and our proposed model enhancements offer promising avenues for future research and refinement.
 <a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
