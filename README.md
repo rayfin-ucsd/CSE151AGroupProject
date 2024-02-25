@@ -83,6 +83,6 @@ For our first model we attempted to use linear regression in predicting net coll
 
 To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Additionaly, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance.
 
-<a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_2_final.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
