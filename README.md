@@ -86,6 +86,7 @@ To enhance this model, we should first explore feature engineering to develop mo
 Moreover, it could be beneficial to encode net collection amounts into classes (ex. $1000-$10000, $10001-$50000, $50000+, etc.), turning this into a classification problem. This could prove to be more accurate since instead of predicting continuous values, the model would simply have to predict which range the collection amount would fall under. We could then use neural networks and perceptrons as our model to predict which range of values each observation falls under. With this, we could also tune this model using the hyperparameter tuning techniques mentioned above. Indeed, encoding net collection amounts into classes for classification could offer a more accurate prediction framework.
 
 Overall, our findings provide valuable insights for policymakers and researchers interested in forecasting government revenue collections, and our proposed model enhancements offer promising avenues for future research and refinement.
+
 <a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
