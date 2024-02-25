@@ -77,11 +77,11 @@ Or, it could just be some outlier bending our curve. It might be tempting to int
 cover a lot more than just income tax. Our future work in prediction modeling may reveal more about the root cause of this trend.
 (We could also do extra work that involves more datasets, but that's beyond the scope of this project.)
 
-1st Model Conclusion (Milestone 3):
+## 1st Model Conclusion (Milestone 3):
 
-For our first model we attempted to use linear regression in predicting net collections amount. As evidenced by the high MSE and MAE values, while the model is a good starting point, it needs refinement to improve its predictive accuracy.
+For our first model we attempted to use linear regression in predicting net collections amount. As evidenced by the high MSE and MAE values, while the model is a good starting point, it needs refinement to improve its predictive accuracy. Since both the training and testing errors were high, our first model is most likely underfitting.
 
-To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Additionaly, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance.
+To enhance this model, we should first explore feature engineering to develop more informative variables that could better explain the variability in the net collections amount. Additionaly, considering the possibility of non-linearity of the relationships in the data, more sophisticated models such as polynomial regression or a random forest might be better suited for prediction. These models can capture complex patterns that a simple Linear Regression might miss. Finally, we could also utilize some form of hyperparameter tuning. Using techniques like grid search or random search, ideally with cross-validation, will help in identifying the most effective model parameters - thereby increasing performance. An ANN model would also be a potential solution, where hyperparameter tuning can again be applied to test out different activations and layer parameters.
 
 Additionally, it could be beneficial to encode net collection amounts into classes (ex. $1000-$10000, $10001-$50000, $50000+, etc.), turning this into a classification problem. We could then use neural networks and perceptrons as our model to predict which range of values each observation falls under. With this, we could also tune this model using the hyperparameter tuning techniques mentioned above.
 
