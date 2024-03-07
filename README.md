@@ -87,6 +87,10 @@ Moreover, it could be beneficial to [encode net collection amounts](https://cola
 
 Overall, our findings provide valuable insights for policymakers and researchers interested in forecasting government revenue collections, and our proposed model enhancements offer promising avenues for future research and refinement.
 
+## 1st Model Evaluation (Milestone 4):
+
+Our initial model used linear regression and tried to predict the net collections amount. However, the high MSE and MAE values show that, despite its simplicity, the model falls short of our predictive accuracy goals. There are significant errors in both training and testing which suggest a large amount of underfitting. The main issue stems from a regression model for a dataset that seems to be much better suited for classification. We could do this by changing net collection amounts into predefined classes (e.g., $1000-$10000, $10001-$50000, $50000+) and then trying to classify those categories. Our other labels seemd to be fine, but we could go back into feature engineering/EDA to look deeper at net collections amount. A neural networks or other classification model, could significantly improve our prediction accuracy. This model would not only align with the quantifiable nature of our data but also allows us to use more complex model types
+
 <a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
