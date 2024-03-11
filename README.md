@@ -95,6 +95,8 @@ Our initial model used linear regression and tried to predict the net collection
 
 The second model's training accuracy compared to its testing accuracy is not too far off, with a [training accuracy of 89% and a testing accuracy of around 88%](https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb#scrollTo=c2c9e760). From this, it seems like the model does not overfit or underfit too much, as the error for the testing and training sets does not deviate too much. Compared to our first model, this model seems to be a much better fit since the first model severely underfit. To construct the model, we performed hyper parameter tuning across multiple activation functions such as tanh, sigmoid, and relu and tested the number of units and layers in the model. We found that [relu and 3 hidden layers with 64, 32, and 24 units performed](https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb#scrollTo=91f73695) the best. Using loss functions other than categorical crossentropy did not give good results. For our next model, we plan to construct a more complex regression model since we feel that we can greatly improve on our first simple regression model with the techniques we've now learned.
 
+![Model 2 Train vs Val](assets/model2fitting.png)
+
 ## 2nd Model Conclusion (Milestone 4):
 
 <a target="_blank" href="https://colab.research.google.com/github/rayfin-ucsd/CSE151AGroupProject/blob/main/milestone_3.ipynb">
