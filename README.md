@@ -1,6 +1,5 @@
 # CSE 151A Project - Group Report
 
-
 **Authors**
 
 Rehan Ali <rmali@ucsd.edu>
@@ -36,6 +35,7 @@ The data give insights to where the federal revenues come from, how much of it c
 - Frequency tables was used to show the distribution of categorical data points.
 - Scatterplot was used to identify data points that deviate significantly from the majority.
 - We used a line chart to investigate Net Collection Amounts by Fiscal Year
+
 ### Data Preprocessing
 
 ### Method 1:
@@ -51,6 +51,7 @@ The data give insights to where the federal revenues come from, how much of it c
 - Shape of our data: `(81248, 15)`
 - There is no missing entry or null values in our dataset
 - Data Types:
+
 ```
 Record Date                         object
 Electronic Category Description     object
@@ -73,52 +74,54 @@ dtype: object
 - Categorical Distributions
 
 | Channel Type Description | Count |
-| ---- | ---- |
-| Bank | 12443 |
-| Internet | 13911 |
-| Mail | 20345 |
-| Other | 66 |
-| Over-the-Counter (OTC) | 34483 |
+| ------------------------ | ----- |
+| Bank                     | 12443 |
+| Internet                 | 13911 |
+| Mail                     | 20345 |
+| Other                    | 66    |
+| Over-the-Counter (OTC)   | 34483 |
 
-|Tax Category Description| Count |
-|---|---|
-|IRS Non-Tax|18545|
-|IRS Tax|24843|
-|Non-Tax|37860|
+| Tax Category Description | Count |
+| ------------------------ | ----- |
+| IRS Non-Tax              | 18545 |
+| IRS Tax                  | 24843 |
+| Non-Tax                  | 37860 |
+
 - Net Collections Amount distribution among categories
 
 | Electronic Category Description | Net Collections Amount |
-| ---- | ---- |
-| Electronic Settlement | 5.683999e+12 |
-| Fully Electronic - All | 6.248116e+13 |
-| Fully Electronic - FS | 6.513066e+11 |
-| Non-Electronic | 4.469666e+12 |
+| ------------------------------- | ---------------------- |
+| Electronic Settlement           | 5.683999e+12           |
+| Fully Electronic - All          | 6.248116e+13           |
+| Fully Electronic - FS           | 6.513066e+11           |
+| Non-Electronic                  | 4.469666e+12           |
 
 | Channel Type Description | Net Collections Amount |
-| ---- | ---- |
-| Bank | 1.574290e+13 |
-| Internet | 4.660688e+13 |
-| Mail | 8.189791e+12 |
-| Other | 2.569657e+07 |
-| Over-the-Counter (OTC) | 2.746536e+12 |
-|  |  |
+| ------------------------ | ---------------------- |
+| Bank                     | 1.574290e+13           |
+| Internet                 | 4.660688e+13           |
+| Mail                     | 8.189791e+12           |
+| Other                    | 2.569657e+07           |
+| Over-the-Counter (OTC)   | 2.746536e+12           |
+|                          |                        |
 
 | Tax Category Description | Net Collections Amount |
-| ---- | ---- |
-| IRS Non-Tax | 2.529981e+09 |
-| IRS Tax | 6.110596e+13 |
-| Non-Tax | 1.217764e+13 |
+| ------------------------ | ---------------------- |
+| IRS Non-Tax              | 2.529981e+09           |
+| IRS Tax                  | 6.110596e+13           |
+| Non-Tax                  | 1.217764e+13           |
 
 - Visualisations
 
-![[Pasted image 20240313191005.png]]
+![Pasted image 20240313191005.png](assets/Pasted%20image%2020240313191005.png)
 Figure n. Heatmap exploring correlations between data points
 
-![[Pasted image 20240313185030.png]]
+![Pasted image 20240313185030.png](assets/scatterplot1.png)
 Figure n. Scatterplot visualizing the distribution of Net Collections Amount from 2004 - 2024
 
-![[Pasted image 20240313191108.png]]
+![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
 Figure n. Average Net Collections Amount by Fiscal Year
+
 ### Data Preprocessing
 
 ### Method 1:
@@ -127,10 +130,10 @@ Figure n. Average Net Collections Amount by Fiscal Year
 
 ### Method 3:
 
-* Present the key findings of your analysis.
-* Use visualizations (charts, graphs) to effectively communicate the results.
-* Include tables or metrics to quantify your findings when appropriate.
-* Discuss the performance of your models or the validity of your hypothesis. 
+- Present the key findings of your analysis.
+- Use visualizations (charts, graphs) to effectively communicate the results.
+- Include tables or metrics to quantify your findings when appropriate.
+- Discuss the performance of your models or the validity of your hypothesis.
 
 ## E. Discussion
 
@@ -146,7 +149,7 @@ This poses the questions: does this correspond to the increasing income inequali
 
 To understand the trend further, we plotted a line chart showing the average Net Collections Amount by fiscal year. This revealed a pattern consistent with a post-pandemic economic recovery. However, a closer look suggests a more nuanced story.
 
-The significant rise in collections could be partially attributed to the growth of specific sectors like e-commerce (e.g., Amazon) and video conferencing (e.g., Zoom) that boomed during COVID-19.  The dip at the end of 2021, reflects the decreasing revenue of the above sectors, which might be the reason for multiple layoffs since then.
+The significant rise in collections could be partially attributed to the growth of specific sectors like e-commerce (e.g., Amazon) and video conferencing (e.g., Zoom) that boomed during COVID-19. The dip at the end of 2021, reflects the decreasing revenue of the above sectors, which might be the reason for multiple layoffs since then.
 
 It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
@@ -160,8 +163,8 @@ It's important to acknowledge limitations here. A single data point (fiscal year
 
 ## F. Conclusion
 
-* Summarize the main takeaways of your project.
-* This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
+- Summarize the main takeaways of your project.
+- This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
 
 ## G. Collaboration
 
