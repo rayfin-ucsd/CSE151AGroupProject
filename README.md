@@ -44,7 +44,7 @@ The data give insights to where the federal revenues come from, how much of it c
 
 ### Method 3:
 
-### D. Results
+## D. Results
 
 ### Exploratory data analysis (EDA)
 
@@ -123,6 +123,16 @@ Figure n. Scatterplot visualizing the distribution of Net Collections Amount fro
 Figure n. Average Net Collections Amount by Fiscal Year
 
 ### Data Preprocessing
+
+Preprocessing involved the following
+- Dropped 'Source Line Number', 'Eletronic Category Description', 'Channel Type Description', 'Tax Category Description' features
+- 'Record Date' feature discretized into an integer for relationship between this and the target class
+- Removed string features and kept encoded integers including 'Fiscal Quarter Number' feature
+
+![image](https://github.com/rayfin-ucsd/CSE151AGroupProject/assets/44584722/66163b03-11c5-4f47-9f82-c7075260be4a)
+
+Figure n. DataFrame after preprocessing
+
 
 ### Method 1:
 
