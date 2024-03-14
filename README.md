@@ -2,16 +2,16 @@
 
 **Authors**
 
-Rehan Ali <rmali@ucsd.edu>
-Aritra Ghosh <a7ghosh@ucsd.edu>
-Scott Webster <s1webste@ucsd.edu>
-Peter Chang <p7chang@ucsd.edu>
-Yuhang Jiang <yuj052@ucsd.edu>
-Milo Nguyen <mtn022@ucsd.edu>
-Trevor Tran <trt004@ucsd.edu>
-Michael Lue <mlue@ucsd.edu>
-Jeffrey Do <jtdo@ucsd.edu>
-Joseph Kan <jokan@ucsd.edu>
+Rehan Ali <rmali@ucsd.edu>,
+Aritra Ghosh <a7ghosh@ucsd.edu>,
+Scott Webster <s1webste@ucsd.edu>,
+Peter Chang <p7chang@ucsd.edu>,
+Yuhang Jiang <yuj052@ucsd.edu>,
+Milo Nguyen <mtn022@ucsd.edu>,
+Trevor Tran <trt004@ucsd.edu>,
+Michael Lue <mlue@ucsd.edu>,
+Jeffrey Do <jtdo@ucsd.edu>,
+Joseph Kan <jokan@ucsd.edu>.
 
 **Date**
 03-13-2024
@@ -20,7 +20,9 @@ Joseph Kan <jokan@ucsd.edu>
 
 This project aims to explore the "U.S. Government Revenue Collections" dataset from Kaggle, and use it in supervised machine learning models to predict future revenues.
 
-The data give insights to where the federal revenues come from, how much of it comes from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit.
+The data give insights to where the federal revenues come from, and how much come from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit.
+
+We hypothesize that certain categories and channel types, as well as the date of collection affect the net revenue amount collected.
 
 ## B. Figures
 
@@ -34,9 +36,14 @@ The data give insights to where the federal revenues come from, how much of it c
 - We also used heatmaps to visualize correlations between multiple variables.
 - Frequency tables was used to show the distribution of categorical data points.
 - Scatterplot was used to identify data points that deviate significantly from the majority.
-- We used a line chart to investigate Net Collection Amounts by Fiscal Year
+- We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Data Preprocessing
+
+- Checked for null values and dropped duplicate entries.
+- Dropped columns: 'Source Line Number', 'Eletronic Category Description', 'Channel Type Description', 'Tax Category Description'.
+- 'Record Date' feature discretized into an integer. For example, the oldest entry is at day 0, and the latest entry is at day 7026. This will help us model the relationship between the date of collection and the revenue (target class).
+- Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
 
 ### Method 1:
 
@@ -124,15 +131,9 @@ Figure n. Average Net Collections Amount by Fiscal Year
 
 ### Data Preprocessing
 
-Preprocessing involved the following
-- Dropped 'Source Line Number', 'Eletronic Category Description', 'Channel Type Description', 'Tax Category Description' features
-- 'Record Date' feature discretized into an integer for relationship between this and the target class
-- Removed string features and kept encoded integers including 'Fiscal Quarter Number' feature
-
 ![image](https://github.com/rayfin-ucsd/CSE151AGroupProject/assets/44584722/66163b03-11c5-4f47-9f82-c7075260be4a)
 
 Figure n. DataFrame after preprocessing
-
 
 ### Method 1:
 
@@ -164,6 +165,15 @@ The significant rise in collections could be partially attributed to the growth 
 It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
 ### Data Preprocessing
+
+We hypothesized that the Fiscal Quarter would be a helpful feature in predicting the revenue, so we kept the information.
+
+We also kept the columns: Calendar Year Number, Calendar Quarter Number, Calendar Month Number, Calendar Day Number. But these features are not independent of each other, so we have several options for our analysis of their relationships:
+
+1. Record Date Discretized
+2. Calendar Year Number, Calendar Month Number, Calendar Day Number
+3. Calendar Year Number, Calendar Quarter Number,
+4. Others
 
 ### Method 1:
 
