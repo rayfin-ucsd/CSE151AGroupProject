@@ -45,7 +45,13 @@ We hypothesize that certain categories and channel types, as well as the date of
 - Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
 - We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
-### Method 1:
+### Method 1: Linear Regression
+
+- We used one-hot encoding on these categories: 'Electronic Category ID', 'Channel Type ID', 'Tax Category ID'.
+- Splitted the data into training and testing set with the ratio of 80:20.
+- Plotted the prediction versus the true value on a scatterplot for each feature.
+- Analyzed the Mean Squared Error (MSE), and Mean Absolute Error (MAE) on the training and testing set.
+
 
 ### Method 2:
 
@@ -144,7 +150,20 @@ Figure n. Net Collections Amount by Tax Category Description
 ![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
 Figure n. Average Net Collections Amount by Fiscal Year
 
-### Method 1:
+### Method 1: Linear Regression
+
+- Training MSE:  9.921680122975543e+18
+- Test MSE:  8.863121770208695e+18
+
+- Training MAE:  1363190931.6938503
+- Test MAE:  1346315683.6159906
+
+| ![image](assets/Pasted%20image%2020240314155228.png 'Record Date Discretized') | ![image](assets/Pasted%20image%2020240314155300.png) |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| ![image](assets/Pasted%20image%2020240314155314.png)                           | ![image](assets/Pasted%20image%2020240314155326.png) |
+| ![image](assets/Pasted%20image%2020240314155340.png)                           | ![image](assets/Pasted%20image%2020240314155358.png) |
+| ![image](assets/Pasted%20image%2020240314155410.png)                           | ![image](assets/Pasted%20image%2020240314155423.png) |
+Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 
 ### Method 2:
 
@@ -184,7 +203,11 @@ The significant rise in collections could be partially attributed to the growth 
 
 It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
-### Method 1:
+### Method 1: Linear Regression
+
+The very high MSE and MAE for both the testing and training sets indicate **underfitting.** Linear regression using just one feature is too simple to predict future revenues.
+
+For later models, we tried the classification approach by encoding the Net Collections Amount into ordinal categories based on the range of values they fall under.
 
 ### Method 2:
 
