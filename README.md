@@ -36,7 +36,6 @@ We hypothesize that certain categories and channel types, as well as the date of
 - We also used heatmaps to visualize correlations between multiple variables.
 - Frequency tables was used to show the distribution of categorical data points.
 - Scatterplot was used to identify data points that deviate significantly from the majority.
-- We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Data Preprocessing
 
@@ -44,6 +43,7 @@ We hypothesize that certain categories and channel types, as well as the date of
 - Dropped columns: 'Source Line Number', 'Eletronic Category Description', 'Channel Type Description', 'Tax Category Description'.
 - 'Record Date' feature discretized into an integer. For example, the oldest entry is at day 0, and the latest entry is at day 7026. This will help us model the relationship between the date of collection and the revenue (target class).
 - Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
+- We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Method 1:
 
@@ -126,14 +126,23 @@ Figure n. Heatmap exploring correlations between data points
 ![Pasted image 20240313185030.png](assets/scatterplot1.png)
 Figure n. Scatterplot visualizing the distribution of Net Collections Amount from 2004 - 2024
 
-![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
-Figure n. Average Net Collections Amount by Fiscal Year
-
 ### Data Preprocessing
 
 ![image](https://github.com/rayfin-ucsd/CSE151AGroupProject/assets/44584722/66163b03-11c5-4f47-9f82-c7075260be4a)
 
 Figure n. DataFrame after preprocessing
+
+![Pasted image 20240314151427.png](assets/Pasted%20image%2020240314151427.png)
+Figure n. Net Collections Amount by Electronic Category Description
+
+![Pasted image 20240314151623.png](assets/Pasted%20image%2020240314151623.png)
+Figure n. Net Collections Amount by Channel Type Description
+
+![Pasted image 20240314151724.png](assets/Pasted%20image%2020240314151724.png)
+Figure n. Net Collections Amount by Tax Category Description
+
+![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
+Figure n. Average Net Collections Amount by Fiscal Year
 
 ### Method 1:
 
@@ -158,12 +167,6 @@ The scatterplot of Net Collections Amount from 2004 - 2024 reveals that the majo
 
 This poses the questions: does this correspond to the increasing income inequality? Or did the government become more effective at collecting taxes?
 
-To understand the trend further, we plotted a line chart showing the average Net Collections Amount by fiscal year. This revealed a pattern consistent with a post-pandemic economic recovery. However, a closer look suggests a more nuanced story.
-
-The significant rise in collections could be partially attributed to the growth of specific sectors like e-commerce (e.g., Amazon) and video conferencing (e.g., Zoom) that boomed during COVID-19. The dip at the end of 2021, reflects the decreasing revenue of the above sectors, which might be the reason for multiple layoffs since then.
-
-It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
-
 ### Data Preprocessing
 
 We hypothesized that the Fiscal Quarter would be a helpful feature in predicting the revenue, so we kept the information.
@@ -174,6 +177,12 @@ We also kept the columns: Calendar Year Number, Calendar Quarter Number, Calenda
 2. Calendar Year Number, Calendar Month Number, Calendar Day Number
 3. Calendar Year Number, Calendar Quarter Number,
 4. Others
+
+To understand the revenue collections trend further, we plotted a line chart showing the average Net Collections Amount by fiscal year. This revealed a pattern consistent with a post-pandemic economic recovery. However, a closer look suggests a more nuanced story.
+
+The significant rise in collections could be partially attributed to the growth of specific sectors like e-commerce (e.g., Amazon) and video conferencing (e.g., Zoom) that boomed during COVID-19. The dip at the end of 2021, reflects the decreasing revenue of the above sectors, which might be the reason for multiple layoffs since then.
+
+It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
 ### Method 1:
 
