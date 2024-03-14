@@ -20,7 +20,9 @@ Joseph Kan <jokan@ucsd.edu>.
 
 This project aims to explore the "U.S. Government Revenue Collections" dataset from Kaggle, and use it in supervised machine learning models to predict future revenues.
 
-The data give insights to where the federal revenues come from, and how much come from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit.
+The data give insights to where the federal revenues come from, and how much come from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit. Not to mention, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenune collecting strategies, ensuring financial stability and growth.
+
+
 
 We hypothesize that certain categories and channel types, as well as the date of collection affect the net revenue amount collected.
 
@@ -188,7 +190,7 @@ We also kept the columns: Calendar Year Number, Calendar Quarter Number, Calenda
 
 ## G. Collaboration
 
-- Rehan Ali - Title:
+- Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones. 
 - Aritra Ghosh - Title:
 - Scott Webster - Title:
 - Peter Chang - Title:
