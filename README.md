@@ -165,6 +165,7 @@ Figure n. Average Net Collections Amount by Fiscal Year
 | ![image](assets/Pasted%20image%2020240314155314.png)                           | ![image](assets/Pasted%20image%2020240314155326.png) |
 | ![image](assets/Pasted%20image%2020240314155340.png)                           | ![image](assets/Pasted%20image%2020240314155358.png) |
 | ![image](assets/Pasted%20image%2020240314155410.png)                           | ![image](assets/Pasted%20image%2020240314155423.png) |
+
 Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 
 ### Method 2:
@@ -209,8 +210,11 @@ It's important to acknowledge limitations here. A single data point (fiscal year
 
 The very high MSE and MAE for both the testing and training sets indicate **underfitting.** Linear regression using just one feature is too simple to predict future revenues.
 
-For later models, we tried the classification approach by encoding the Net Collections Amount into ordinal categories based on the range of values they fall under.
+We concluded that classification would be a more appropriate approach for this dataset. Classification offers advantages in terms of simplicity, accuracy, flexibility and interpetability, allowing us to navigate non-linear relationships more effectively.
 
+To implement this, we propose changing Net Collections Amount into predefined classes (e.g., $1000-$10000, $10001-$50000, $50000+). By segmenting the net collections amount into discrete ranges, we transform the challenge from predicting precise values to identifying the appropriate range of revenues.
+
+For categories such as Channel Type, Tax Category, we can try feature engineering to implement a neural networks that can improve our prediction accuracy.
 ### Method 2:
 
 ### Method 3:
