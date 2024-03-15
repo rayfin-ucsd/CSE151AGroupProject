@@ -344,7 +344,7 @@ When tuning this model, we found that the model would frequently get stuck outpu
 ## G. Collaboration
 
 - Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones.
-- Aritra Ghosh -  Contributed valuable insights, helped write the various sections in the readme, and proofread during all the milestones.
+- Aritra Ghosh -  Contributed valuable insights, helped write signifiant parts in the readme, and proofread during all the milestones.
 - Scott Webster - Title:
 - Peter Chang - Title:
 - Yuhang Jiang - Title:
