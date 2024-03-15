@@ -14,7 +14,7 @@ Yuhang Jiang <yuj052@ucsd.edu>,
 
 Milo Nguyen <mtn022@ucsd.edu>,
 
-Trevor Tran <trt004@ucsd.edu>,
+Trevor Tran <trt004@ucsd.edu> (Github: trevtsd),
 
 Michael Lue <mlue@ucsd.edu>,
 
@@ -349,7 +349,7 @@ When tuning this model, we found that the model would frequently get stuck outpu
 - Peter Chang - Title:
 - Yuhang Jiang - Title:
 - Milo Nguyen - Title:
-- Trevor Tran - Title:
+- Trevor Tran - Worked on evaluations for the first model, helped with final README writeup
 - Michael Lue - Imported dataset and processed into DataFrame, examined data characteristics and conducted various EDA aggregations.
 - Jeffrey Do - Title:
 - Joseph Kan - Searched for datasets, wrote the abstracts, plotted some visuals for EDA, did preprocessing for the classification model, coded the second model, wrote parts of README and proofread for all milestones.
