@@ -346,7 +346,7 @@ When tuning this model, we found that the model would frequently get stuck outpu
 - Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones.
 - Aritra Ghosh - Contributed valuable insights, helped write signifiant parts in the readme, and proofread during all the milestones.
 - Scott Webster - Title:
-- Peter Chang - Title:
+- Peter Chang - Proofread and made adjustments to model 1 analysis and readme, assisted in fixing performance issues for the second model, and proofread and double checked against submission guidelines for all milestones.
 - Yuhang Jiang - Title:
 - Milo Nguyen - Title:
 - Trevor Tran - Worked on evaluations for the first model, helped with final README writeup
