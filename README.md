@@ -54,8 +54,42 @@ We hypothesize that certain categories and channel types, as well as the date of
 - Plotted the prediction versus the true value on a scatterplot for each feature.
 - Analyzed the Mean Squared Error (MSE), and Mean Absolute Error (MAE) on the training and testing set.
 
+### Method 2: 3-Hidden Layer Neural Network
 
-### Method 2:
+Processing the data:
+- We used the StandardScaler from scikit-learn to normalize 'Record Date Discretized'
+- These columns are also one-hot encoded: 'Calendar Year', 'Calendar Quarter Number', 'Calendar Month Number', 'Calendar Day Number', 'Fiscal Quarter Number', 'Fiscal Year'.
+- We used uniform discretization on the target.
+- RandomUnderSampler from scikit-learn was used to undersample since data skews too heavily towards one class.
+- Splitted the data into training and testing set with the ratio of 90:10.
+
+Implemting our Neural Network:
+- We used Dense layers and the ReLU activation function on each hidden layer
+- Layer 1: 64 units
+- Layer 2: 32 units
+- Layer 3: 24 units
+- We used SoftMax activation on the output layer and made sure that it had the same shape as our target
+- Adam optimization algorithm and Categorical Cross-Entropy Loss Function were used to train our model
+
+We would stop the training process early if the conditions were met:
+```
+early_stopping = tf.keras.callbacks.EarlyStopping(
+  monitor='val_loss',
+  min_delta=0,
+  patience=2,
+  verbose=0,
+  mode='auto',
+  baseline=None,
+  restore_best_weights=False,
+  start_from_epoch=0
+)
+```
+- Lastly, we used 5-fold Cross Validation to evaluate our model:
+```
+converted_classifier = KerasClassifier(model=classifier, epochs=10, batch_size=100, verbose=0) # before submitting please set verbose = 0, and rerun. If not grading will be no bueno!
+kfold = RepeatedKFold(n_splits = 5, n_repeats = 5)
+results = cross_validate(converted_classifier, x_train_class, y_train_class, cv=kfold, n_jobs = 1)
+```
 
 ### Method 3:
 
@@ -168,7 +202,57 @@ Figure n. Average Net Collections Amount by Fiscal Year
 
 Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 
-### Method 2:
+### Method 2: 3-Hidden Layer Neural Network
+
+- Test accuracy 0.882727852135118
+- Train accuracy 0.9061857861546092
+- Detailed Reports:
+
+| Test         | precision | recall | f1-score | support |
+| ------------ | --------- | ------ | -------- | ------- |
+| 0            | 0.00      | 0.00   | 0.00     | 0       |
+| 1            | 0.94      | 0.96   | 0.95     | 1383    |
+| 2            | 0.42      | 0.44   | 0.43     | 135     |
+| 3            | 0.29      | 0.07   | 0.11     | 29      |
+| 4            | 0.29      | 0.25   | 0.27     | 8       |
+|              |           |        |          |         |
+| micro avg    | 0.89      | 0.89   | 0.89     | 1555    |
+| macro avg    | 0.39      | 0.34   | 0.35     | 1555    |
+| weighted avg | 0.88      | 0.89   | 0.88     | 1555    |
+
+| Test         | precision | recall | f1-score | support |
+| ------------ | --------- | ------ | -------- | ------- |
+| 0            | 0.00      | 0.00   | 0.00     | 1       |
+| 1            | 0.96      | 0.97   | 0.96     | 12314   |
+| 2            | 0.54      | 0.62   | 0.58     | 1223    |
+| 3            | 0.55      | 0.14   | 0.22     | 303     |
+| 4            | 0.40      | 0.33   | 0.36     | 125     |
+|              |           |        |          |         |
+| micro avg    | 0.91      | 0.91   | 0.91     | 13966   |
+| macro avg    | 0.49      | 0.41   | 0.42     | 13966   |
+| weighted avg | 0.91      | 0.91   | 0.91     | 13966   |
+
+![image](assets/Pasted%20image%2020240314171307.png)
+Figure n. Our training vs. validation loss curve for the classification model
+
+- Results from 5-fold Cross Validation
+```
+{'fit_time': array([3.06173301, 2.28290009, 2.91096926, 2.28356886, 5.65043139,
+        4.67005944, 4.95075941, 3.08874106, 2.87767005, 3.06847882,
+        2.29236913, 5.89590001, 5.66160393, 2.2842021 , 3.08835483,
+        3.0817461 , 5.63335752, 3.38426137, 3.0807209 , 3.07273555,
+        3.08618426, 2.26404953, 3.05224347, 3.09446478, 2.40452385]),
+ 'score_time': array([0.17636251, 0.17707229, 0.1736536 , 0.17748141, 0.5534513 ,
+        0.61605811, 0.39125013, 0.15768123, 0.17943549, 0.17558837,
+        0.16396952, 0.38887691, 0.34246421, 0.17547417, 0.18276715,
+        0.31620049, 0.18085265, 0.30872846, 0.18151426, 0.15895343,
+        0.34406638, 0.16248918, 0.15803552, 0.252074  , 0.16214705]),
+ 'test_score': array([0.89798087, 0.90081474, 0.905774  , 0.9032601 , 0.90077959,
+        0.9068367 , 0.90116897, 0.8983351 , 0.89581857, 0.90184266,
+        0.9047113 , 0.9047113 , 0.8993978 , 0.90219702, 0.89510985,
+        0.90294013, 0.90223167, 0.90081474, 0.89617293, 0.9032601 ,
+        0.9004605 , 0.9025859 , 0.90329437, 0.8990078 , 0.89794472])}
+```
 
 ### Method 3:
 
@@ -215,8 +299,18 @@ We concluded that classification would be a more appropriate approach for this d
 To implement this, we propose changing Net Collections Amount into predefined classes (e.g., $1000-$10000, $10001-$50000, $50000+). By segmenting the net collections amount into discrete ranges, we transform the challenge from predicting precise values to identifying the appropriate range of revenues.
 
 For categories such as Channel Type, Tax Category, we can try feature engineering to implement a neural networks that can improve our prediction accuracy.
-### Method 2:
 
+### Method 2: 3-Hidden Layer Neural Network
+
+The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicates that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this. 
+
+We implemented early stopping and hyperparameter tuning to test out multiple activation functions such as tanh, sigmoid, and ReLU and to find the optimal number of units and layers.
+ 
+Our hyperparameter tuning found that a neural network with 3 Dense hidden layers, each using the ReLU activation function performs the best. The hidden layers have 63, 32, and 24 units respectively. We also discovered that using loss functions other than Categorical Cross-Entropy did not yield good results.
+ 
+ When tuning this model, we found that the model would frequently get stuck outputting a single class since the Net Collections Amount in our dataset skewed so heavily towards a particular range of values. To mitigate such problems, we used undersampling to reduce bias in our training. This means using a fraction of the majority class observations for training. 
+ 
+ 5-fold cross validation yielded promising test scores for this iteration. So far, our second model had yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset. 
 ### Method 3:
 
 ## F. Conclusion
