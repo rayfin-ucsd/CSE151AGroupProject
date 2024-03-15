@@ -2,7 +2,7 @@
 
 **Authors**
 
-Rehan Ali <rmali@ucsd.edu>,
+Rehan Ali <rmali@ucsd.edu> (Github: rmali-ucsd),
 
 Aritra Ghosh <a7ghosh@ucsd.edu>,
 
