@@ -3,15 +3,24 @@
 **Authors**
 
 Rehan Ali <rmali@ucsd.edu>,
+
 Aritra Ghosh <a7ghosh@ucsd.edu>,
+
 Scott Webster <s1webste@ucsd.edu>,
+
 Peter Chang <p7chang@ucsd.edu>,
+
 Yuhang Jiang <yuj052@ucsd.edu>,
+
 Milo Nguyen <mtn022@ucsd.edu>,
+
 Trevor Tran <trt004@ucsd.edu>,
+
 Michael Lue <mlue@ucsd.edu>,
+
 Jeffrey Do <jtdo@ucsd.edu>,
-Joseph Kan <jokan@ucsd.edu>.
+
+Joseph Kan <jokan@ucsd.edu> (Github: Person1234565)
 
 **Date**
 03-13-2024
@@ -21,8 +30,6 @@ Joseph Kan <jokan@ucsd.edu>.
 This project aims to explore the "U.S. Government Revenue Collections" dataset from Kaggle, and use it in supervised machine learning models to predict future revenues.
 
 The data give insights to where the federal revenues come from, and how much come from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit. Not to mention, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenune collecting strategies, ensuring financial stability and growth.
-
-
 
 We hypothesize that certain categories and channel types, as well as the date of collection affect the net revenue amount collected.
 
@@ -57,6 +64,7 @@ We hypothesize that certain categories and channel types, as well as the date of
 ### Method 2: 3-Hidden Layer Neural Network
 
 Processing the data:
+
 - We used the StandardScaler from scikit-learn to normalize 'Record Date Discretized'
 - These columns are also one-hot encoded: 'Calendar Year', 'Calendar Quarter Number', 'Calendar Month Number', 'Calendar Day Number', 'Fiscal Quarter Number', 'Fiscal Year'.
 - We used uniform discretization on the target.
@@ -64,6 +72,7 @@ Processing the data:
 - Splitted the data into training and testing set with the ratio of 90:10.
 
 Implemting our Neural Network:
+
 - We used Dense layers and the ReLU activation function on each hidden layer
 - Layer 1: 64 units
 - Layer 2: 32 units
@@ -72,6 +81,7 @@ Implemting our Neural Network:
 - Adam optimization algorithm and Categorical Cross-Entropy Loss Function were used to train our model
 
 We would stop the training process early if the conditions were met:
+
 ```
 early_stopping = tf.keras.callbacks.EarlyStopping(
   monitor='val_loss',
@@ -84,7 +94,9 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
   start_from_epoch=0
 )
 ```
+
 - Lastly, we used 5-fold Cross Validation to evaluate our model:
+
 ```
 converted_classifier = KerasClassifier(model=classifier, epochs=10, batch_size=100, verbose=0) # before submitting please set verbose = 0, and rerun. If not grading will be no bueno!
 kfold = RepeatedKFold(n_splits = 5, n_repeats = 5)
@@ -188,13 +200,13 @@ Figure n. Average Net Collections Amount by Fiscal Year
 
 ### Method 1: Linear Regression
 
-- Training MSE:  9.921680122975543e+18
-- Test MSE:  8.863121770208695e+18
+- Training MSE: 9.921680122975543e+18
+- Test MSE: 8.863121770208695e+18
 
-- Training MAE:  1363190931.6938503
-- Test MAE:  1346315683.6159906
+- Training MAE: 1363190931.6938503
+- Test MAE: 1346315683.6159906
 
-| ![image](assets/Pasted%20image%2020240314155228.png 'Record Date Discretized') | ![image](assets/Pasted%20image%2020240314155300.png) |
+| ![image](assets/Pasted%20image%2020240314155228.png "Record Date Discretized") | ![image](assets/Pasted%20image%2020240314155300.png) |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------- |
 | ![image](assets/Pasted%20image%2020240314155314.png)                           | ![image](assets/Pasted%20image%2020240314155326.png) |
 | ![image](assets/Pasted%20image%2020240314155340.png)                           | ![image](assets/Pasted%20image%2020240314155358.png) |
@@ -236,6 +248,7 @@ Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 Figure n. Our training vs. validation loss curve for the classification model
 
 - Results from 5-fold Cross Validation
+
 ```
 {'fit_time': array([3.06173301, 2.28290009, 2.91096926, 2.28356886, 5.65043139,
         4.67005944, 4.95075941, 3.08874106, 2.87767005, 3.06847882,
@@ -302,15 +315,16 @@ For categories such as Channel Type, Tax Category, we can try feature engineerin
 
 ### Method 2: 3-Hidden Layer Neural Network
 
-The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicates that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this. 
+The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicates that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this.
 
 We implemented early stopping and hyperparameter tuning to test out multiple activation functions such as tanh, sigmoid, and ReLU and to find the optimal number of units and layers.
- 
+
 Our hyperparameter tuning found that a neural network with 3 Dense hidden layers, each using the ReLU activation function performs the best. The hidden layers have 63, 32, and 24 units respectively. We also discovered that using loss functions other than Categorical Cross-Entropy did not yield good results.
- 
- When tuning this model, we found that the model would frequently get stuck outputting a single class since the Net Collections Amount in our dataset skewed so heavily towards a particular range of values. To mitigate such problems, we used undersampling to reduce bias in our training. This means using a fraction of the majority class observations for training. 
- 
- 5-fold cross validation yielded promising test scores for this iteration. So far, our second model had yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset. 
+
+When tuning this model, we found that the model would frequently get stuck outputting a single class since the Net Collections Amount in our dataset skewed so heavily towards a particular range of values. To mitigate such problems, we used undersampling to reduce bias in our training. This means using a fraction of the majority class observations for training.
+
+5-fold cross validation yielded promising test scores for this iteration. So far, our second model had yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
+
 ### Method 3:
 
 ## F. Conclusion
@@ -320,7 +334,7 @@ Our hyperparameter tuning found that a neural network with 3 Dense hidden layers
 
 ## G. Collaboration
 
-- Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones. 
+- Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones.
 - Aritra Ghosh - Title:
 - Scott Webster - Title:
 - Peter Chang - Title:
@@ -329,4 +343,4 @@ Our hyperparameter tuning found that a neural network with 3 Dense hidden layers
 - Trevor Tran - Title:
 - Michael Lue - Title:
 - Jeffrey Do - Title:
-- Joseph Kan - Title:
+- Joseph Kan - Searched for datasets, wrote the abstracts, plotted some visuals for EDA, did preprocessing for the classification model, coded the second model, wrote parts of README and proofread for all milestones.
