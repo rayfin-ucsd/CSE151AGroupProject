@@ -29,7 +29,7 @@ Joseph Kan <jokan@ucsd.edu> (Github: Person1234565)
 
 This project aims to explore the "U.S. Government Revenue Collections" dataset from Kaggle, and use it in supervised machine learning models to predict future revenues.
 
-The data give insights to where the federal revenues come from, and how much come from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit. Not to mention, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenune collecting strategies, ensuring financial stability and growth.
+The data give insights to where the federal revenues come from, and how much comes from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit. Not to mention, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenue collecting strategies, ensuring financial stability and growth.
 
 We hypothesize that certain categories and channel types, as well as the date of collection affect the net revenue amount collected.
 
@@ -43,21 +43,21 @@ We hypothesize that certain categories and channel types, as well as the date of
 
 - We explored the shape and types of the data, unique values, missing entries. etc.
 - We also used heatmaps to visualize correlations between multiple variables.
-- Frequency tables was used to show the distribution of categorical data points.
+- Frequency tables were used to show the distribution of categorical data points.
 - Scatterplot was used to identify data points that deviate significantly from the majority.
 
 ### Data Preprocessing
 
 - Checked for null values and dropped duplicate entries.
-- Dropped columns: 'Source Line Number', 'Eletronic Category Description', 'Channel Type Description', 'Tax Category Description'.
-- 'Record Date' feature discretized into an integer. For example, the oldest entry is at day 0, and the latest entry is at day 7026. This will help us model the relationship between the date of collection and the revenue (target class).
+- Dropped columns: 'Source Line Number', 'Electronic Category Description', 'Channel Type Description', 'Tax Category Description'.
+- 'Record Date' feature is discretized into an integer. For example, the oldest entry is at day 0, and the latest entry is at day 7026. This will help us model the relationship between the date of collection and the revenue (target class).
 - Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
 - We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Method 1: Linear Regression
 
 - We used one-hot encoding on these categories: 'Electronic Category ID', 'Channel Type ID', 'Tax Category ID'.
-- Splitted the data into training and testing set with the ratio of 80:20.
+- Splitted the data into training and testing sets with the ratio of 80:20.
 - Plotted the prediction versus the true value on a scatterplot for each feature.
 - Analyzed the Mean Squared Error (MSE), and Mean Absolute Error (MAE) on the training and testing set.
 
@@ -69,9 +69,9 @@ Processing the data:
 - These columns are also one-hot encoded: 'Calendar Year', 'Calendar Quarter Number', 'Calendar Month Number', 'Calendar Day Number', 'Fiscal Quarter Number', 'Fiscal Year'.
 - We used uniform discretization on the target.
 - RandomUnderSampler from scikit-learn was used to undersample since data skews too heavily towards one class.
-- Splitted the data into training and testing set with the ratio of 90:10.
+- Splitted the data into training and testing sets with the ratio of 90:10.
 
-Implemting our Neural Network:
+Implementing our Neural Network:
 
 - We used Dense layers and the ReLU activation function on each hidden layer
 - Layer 1: 64 units
@@ -307,15 +307,15 @@ It's important to acknowledge limitations here. A single data point (fiscal year
 
 The very high MSE and MAE for both the testing and training sets indicate **underfitting.** Linear regression using just one feature is too simple to predict future revenues.
 
-We concluded that classification would be a more appropriate approach for this dataset. Classification offers advantages in terms of simplicity, accuracy, flexibility and interpetability, allowing us to navigate non-linear relationships more effectively.
+We concluded that classification would be a more appropriate approach for this dataset. Classification offers advantages in terms of simplicity, accuracy, flexibility and interpretability, allowing us to navigate non-linear relationships more effectively.
 
 To implement this, we propose changing Net Collections Amount into predefined classes (e.g., $1000-$10000, $10001-$50000, $50000+). By segmenting the net collections amount into discrete ranges, we transform the challenge from predicting precise values to identifying the appropriate range of revenues.
 
-For categories such as Channel Type, Tax Category, we can try feature engineering to implement a neural networks that can improve our prediction accuracy.
+For categories such as Channel Type, Tax Category, we can try feature engineering to implement neural networks that can improve our prediction accuracy.
 
 ### Method 2: 3-Hidden Layer Neural Network
 
-The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicates that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this.
+The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicate that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this.
 
 We implemented early stopping and hyperparameter tuning to test out multiple activation functions such as tanh, sigmoid, and ReLU and to find the optimal number of units and layers.
 
@@ -323,7 +323,7 @@ Our hyperparameter tuning found that a neural network with 3 Dense hidden layers
 
 When tuning this model, we found that the model would frequently get stuck outputting a single class since the Net Collections Amount in our dataset skewed so heavily towards a particular range of values. To mitigate such problems, we used undersampling to reduce bias in our training. This means using a fraction of the majority class observations for training.
 
-5-fold cross validation yielded promising test scores for this iteration. So far, our second model had yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
+5-fold cross validation yielded promising test scores for this iteration. So far, our second model has yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
 
 ### Method 3:
 
@@ -331,11 +331,17 @@ When tuning this model, we found that the model would frequently get stuck outpu
 
 - Summarize the main takeaways of your project.
 - This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
+- Complexity - Interpretability Tradeoff
+  The transition to a neural network-based classification method significantly enhanced our predictive capabilities. It is worth noting that this implementation came with a heavy cost to interpretability, since neural networks, particularly deep ones, can act as "black boxes," making it difficult to truly gain a thorough understanding of how they make predictions. In the future, it is key that we balance complexity with interpretability. To this end, future projects could explore models like Decision Trees, Random Forests, or Gradient Boosting Machines (GBMs). These models can offer a compromise, providing both the ability to handle complex, nonlinear relationships and more transparency in how decisions are made. Utilizing techniques such as SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations) could give us more nuanced insights into the decision making process of more complex models. Expanding the use of SHAP and LIME by incorporating them into a regular part of the modeling workflow, not just as a post-hoc analysis tool could involve developing pipelines that automatically generate interpretability reports for each model iteration, leaving us in a better position to analyze the impacts of feature engineering and model parameter adjustments. It might also be in our advantage to explore advanced ensemble techniques such as XGBoost, LightGBM, and CatBoost, given their robustness and efficacy with larger datasets.
+- Data Granularity
+   Enhancing data granularity could involve collecting more detailed information about revenue sources, such as geographic distribution, demographic details of taxpayers, or the economic sectors contributing to tax revenues. This is important because the success of our project hinged by and large on the granularity of the data we processed. Incorporating finer geographic details, such as state or county-level data, can provide critical insights into regional economic strengths and weaknesses, revealing patterns that are not visible at a national level. Detailing revenue collections by economic sector—such as technology, manufacturing, healthcare, and retail—can illuminate the impact of economic shifts and policy changes on government revenues. Integrating temporal features more deeply, such as fiscal periods, economic cycles, and seasonal trends, can improve predictions by accounting for time-based patterns in revenue collection, bestowing us with greater forecasting capability. Combining enhanced data granularity with techniques like Principal Component Analysis (PCA) may yield reduced dimensions while preserving essential information. Implementing the aforementioned strategies may result in more nuanced insights and greater predictive capabilities, ultimately contributing to more effective and efficient revenue collection practices.
+- Ethical Considerations
+  The integration of ethical and social considerations into model design and interpretation is a fundamental necessity. Indeed, our commitment to ethical AI necessitates a holistic approach that encompasses more than just the technical aspects of model building and includes a deeper grasp of the societal impact of these technologies. On reflecting on the broader impacts of our model's predictions, we recognize that it is paramount to engage with domain experts, policymakers, and potentially affected communities to understand the real-world implications of model decisions. This step is crucial in bridging the gap between theoretical model outcomes and real-world implication. For instance, understanding from policymakers and domain experts the implications of revenue forecasts on public services, and from communities how these services (or the lack thereof) affect their lives, can guide the development of models that serve the public interest. Furthermore, the ethical deployment of AI systems requires the establishment of continuous monitoring frameworks to ensure that models remain aligned with societal values and norms over time. This can be achieved by defining ethical guidelines, developing monitoring metrics, regular assessment, stakeholder engagement and transparency, and regulatory compliance. This adaptive approach will ensure that the model remains aligned with ethical guidelines and public expectations over time. Our commitment to ethics also entails transparency about the limitations of models and the uncertainties in their predictions. Transparently addressing these elements can cultivate confidence and empower better decision-making among all relevant stakeholders. This is also to acknowledge that while machine models are incredibly powerful, they are not infallible and must be viewed as one of many tools in policy making and governance. Ultimately, the goal of incorporating ethical and societal considerations into AI is to ensure that these technologies contribute positively to society. In doing so, we can harness the capabilities of AI to create more equitable, just, and prosperous societies.
 
 ## G. Collaboration
 
 - Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones.
-- Aritra Ghosh - Title:
+- Aritra Ghosh -  Contributed valuable insights, helped write the various sections in the readme, and proofread during all the milestones.
 - Scott Webster - Title:
 - Peter Chang - Title:
 - Yuhang Jiang - Title:
