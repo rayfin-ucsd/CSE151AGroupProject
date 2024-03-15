@@ -341,6 +341,6 @@ When tuning this model, we found that the model would frequently get stuck outpu
 - Yuhang Jiang - Title:
 - Milo Nguyen - Title:
 - Trevor Tran - Title:
-- Michael Lue - Title:
+- Michael Lue - Imported dataset and processed into DataFrame, examined data characteristics and conducted various EDA aggregations.
 - Jeffrey Do - Title:
 - Joseph Kan - Searched for datasets, wrote the abstracts, plotted some visuals for EDA, did preprocessing for the classification model, coded the second model, wrote parts of README and proofread for all milestones.
