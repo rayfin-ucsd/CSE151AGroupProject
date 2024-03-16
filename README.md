@@ -214,28 +214,28 @@ dtype: object
 - Visualisations
 
 ![Pasted image 20240313191005.png](assets/Pasted%20image%2020240313191005.png)
-Figure n. Heatmap exploring correlations between data points
+Figure 1. Heatmap exploring correlations between data points
 
 ![Pasted image 20240313185030.png](assets/scatterplot1.png)
-Figure n. Scatterplot visualizing the distribution of Net Collections Amount from 2004 - 2024
+Figure 2. Scatterplot visualizing the distribution of Net Collections Amount from 2004 - 2024
 
 ### Data Preprocessing
 
 ![image](https://github.com/rayfin-ucsd/CSE151AGroupProject/assets/44584722/66163b03-11c5-4f47-9f82-c7075260be4a)
 
-Figure n. DataFrame after preprocessing
+Figure 3. DataFrame after preprocessing
 
 ![Pasted image 20240314151427.png](assets/Pasted%20image%2020240314151427.png)
-Figure n. Net Collections Amount by Electronic Category Description
+Figure 4. Net Collections Amount by Electronic Category Description
 
 ![Pasted image 20240314151623.png](assets/Pasted%20image%2020240314151623.png)
-Figure n. Net Collections Amount by Channel Type Description
+Figure 5. Net Collections Amount by Channel Type Description
 
 ![Pasted image 20240314151724.png](assets/Pasted%20image%2020240314151724.png)
-Figure n. Net Collections Amount by Tax Category Description
+Figure 6. Net Collections Amount by Tax Category Description
 
 ![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
-Figure n. Average Net Collections Amount by Fiscal Year
+Figure 7. Average Net Collections Amount by Fiscal Year
 
 ### Model 1: Linear Regression
 
@@ -251,7 +251,7 @@ Figure n. Average Net Collections Amount by Fiscal Year
 | ![image](assets/Pasted%20image%2020240314155340.png)                           | ![image](assets/Pasted%20image%2020240314155358.png) |
 | ![image](assets/Pasted%20image%2020240314155410.png)                           | ![image](assets/Pasted%20image%2020240314155423.png) |
 
-Figure n. Scatterplots comparing True Value vs Prediction of each feature.
+Figure 8. Scatterplots comparing True Value vs Prediction of each feature.
 
 ### Model 2: 3-Hidden Layer Neural Network Classifier
 
@@ -284,7 +284,7 @@ Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 | weighted avg | 0.91      | 0.91   | 0.91     | 13966   |
 
 ![image](assets/Pasted%20image%2020240314171307.png)
-Figure n. Our training vs. validation loss curve for the classification model
+Figure 9. Our training vs. validation loss curve for the classification model
 
 - Results from 5-fold Cross Validation
 
@@ -312,13 +312,13 @@ Figure n. Our training vs. validation loss curve for the classification model
 - Train MAE: 0.19066426157951355
 
 ![image](assets/model3fitting.png)
-Figure n. Our training vs. validation loss curve for the regression model
+Figure 10. Our training vs. validation loss curve for the regression model
 
 ![image](assets/model3learningrate.png)
-Figure n. Our learning rate during training for the regression model
+Figure 11. Our learning rate during training for the regression model
 
 ![image](assets/model3testpredict.png)
-Figure n. Plotting our model's prediction against the test dataset over record date
+Figure 12. Plotting our model's prediction against the test dataset over record date
 
 ## E. Discussion
 
@@ -326,7 +326,7 @@ Figure n. Plotting our model's prediction against the test dataset over record d
 
 The frequency tables reveal that most of the revenue comes from certain categories (IRS Tax and Non-Tax) which confirms our hypothesis that certain avenues are more profitable than others.
 
-The heatmap in Figure n finds that the Net Collections Amount is strongly correlated to the different category IDs, which means certain transaction categories bring in more revenue than others.
+The heatmap in Figure 1 finds that the Net Collections Amount is strongly correlated to the different category IDs, which means certain transaction categories bring in more revenue than others.
 
 The scatterplot of Net Collections Amount from 2004 - 2024 reveals that the majority of collections made were small, with a sparse number of outlying large collections. There is a noticeable trend that these outliers increase in count and magnitude each passing year.
 
@@ -383,15 +383,20 @@ As a result, we achieved the best training and testing MAE with this model. The 
 
 ## F. Conclusion
 
-- \***\*Complexity - Interpretability Tradeoff\*\***
-  - The transition to a neural network-based classification method significantly enhanced our predictive capabilities. It is worth noting that this implementation came with a heavy cost to interpretability, since neural networks, particularly deep ones, can act as "black boxes," making it difficult to truly gain a thorough understanding of how they make predictions. In the future, it is key that we balance complexity with interpretability. To this end, future projects could explore models like Decision Trees, Random Forests, or Gradient Boosting Machines (GBMs). These models can offer a compromise, providing both the ability to handle complex, nonlinear relationships and more transparency in how decisions are made. Utilizing techniques such as SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations) could give us more nuanced insights into the decision making process of more complex models.
-  - Expanding the use of SHAP and LIME by incorporating them into a regular part of the modeling workflow, not just as a post-hoc analysis tool could involve developing pipelines that automatically generate interpretability reports for each model iteration, leaving us in a better position to analyze the impacts of feature engineering and model parameter adjustments. It might also be in our advantage to explore advanced ensemble techniques such as XGBoost, LightGBM, and CatBoost, given their robustness and efficacy with larger datasets.
-- \***\*Data Granularity\*\***
-  - Enhancing data granularity could involve collecting more detailed information about revenue sources, such as geographic distribution, demographic details of taxpayers, or the economic sectors contributing to tax revenues. This is important because the success of our project hinged by and large on the granularity of the data we processed. Incorporating finer geographic details, such as state or county-level data, can provide critical insights into regional economic strengths and weaknesses, revealing patterns that are not visible at a national level. Detailing revenue collections by economic sector—such as technology, manufacturing, healthcare, and retail—can illuminate the impact of economic shifts and policy changes on government revenues.
-  - Integrating temporal features more deeply, such as fiscal periods, economic cycles, and seasonal trends, can improve predictions by accounting for time-based patterns in revenue collection, bestowing us with greater forecasting capability. Combining enhanced data granularity with techniques like Principal Component Analysis (PCA) may yield reduced dimensions while preserving essential information. Implementing the aforementioned strategies may result in more nuanced insights and greater predictive capabilities, ultimately contributing to more effective and efficient revenue collection practices.
-- \***\*Ethical Considerations\*\***
-  - The integration of ethical and social considerations into model design and interpretation is a fundamental necessity. Indeed, our commitment to ethical AI necessitates a holistic approach that encompasses more than just the technical aspects of model building and includes a deeper grasp of the societal impact of these technologies. On reflecting on the broader impacts of our model's predictions, we recognize that it is paramount to engage with domain experts, policymakers, and potentially affected communities to understand the real-world implications of model decisions. This step is crucial in bridging the gap between theoretical model outcomes and real-world implication. For instance, understanding from policymakers and domain experts the implications of revenue forecasts on public services, and from communities how these services (or the lack thereof) affect their lives, can guide the development of models that serve the public interest.
-  - Furthermore, the ethical deployment of AI systems requires the establishment of continuous monitoring frameworks to ensure that models remain aligned with societal values and norms over time. This can be achieved by defining ethical guidelines, developing monitoring metrics, regular assessment, stakeholder engagement and transparency, and regulatory compliance. This adaptive approach will ensure that the model remains aligned with ethical guidelines and public expectations over time. Our commitment to ethics also entails transparency about the limitations of models and the uncertainties in their predictions. Transparently addressing these elements can cultivate confidence and empower better decision-making among all relevant stakeholders. This is also to acknowledge that while machine models are incredibly powerful, they are not infallible and must be viewed as one of many tools in policy making and governance. Ultimately, the goal of incorporating ethical and social considerations into AI is to ensure that these technologies contribute positively to society. In doing so, we can harness the capabilities of AI to create more equitable, just, and prosperous societies.
+### Complexity - Interpretability Tradeoff
+- The transition to a neural network-based classification method significantly enhanced our predictive capabilities. It is worth noting that this implementation came with a heavy cost to interpretability, since neural networks, particularly deep ones, can act as "black boxes," making it difficult to truly gain a thorough understanding of how they make predictions. In the future, it is key that we balance complexity with interpretability. To this end, future projects could explore models like Decision Trees, Random Forests, or Gradient Boosting Machines (GBMs). These models can offer a compromise, providing both the ability to handle complex, nonlinear relationships and more transparency in how decisions are made. Utilizing techniques such as SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations) could give us more nuanced insights into the decision making process of more complex models
+
+- Expanding the use of SHAP and LIME by incorporating them into a regular part of the modeling workflow, not just as a post-hoc analysis tool could involve developing pipelines that automatically generate interpretability reports for each model iteration, leaving us in a better position to analyze the impacts of feature engineering and model parameter adjustments. It might also be in our advantage to explore advanced ensemble techniques such as XGBoost, LightGBM, and CatBoost, given their robustness and efficacy with larger datasets.
+
+### Data Granularity
+- Enhancing data granularity could involve collecting more detailed information about revenue sources, such as geographic distribution, demographic details of taxpayers, or the economic sectors contributing to tax revenues. This is important because the success of our project hinged by and large on the granularity of the data we processed. Incorporating finer geographic details, such as state or county-level data, can provide critical insights into regional economic strengths and weaknesses, revealing patterns that are not visible at a national level. Detailing revenue collections by economic sector—such as technology, manufacturing, healthcare, and retail—can illuminate the impact of economic shifts and policy changes on government revenues.
+
+- Integrating temporal features more deeply, such as fiscal periods, economic cycles, and seasonal trends, can improve predictions by accounting for time-based patterns in revenue collection, bestowing us with greater forecasting capability. Combining enhanced data granularity with techniques like Principal Component Analysis (PCA) may yield reduced dimensions while preserving essential information. Implementing the aforementioned strategies may result in more nuanced insights and greater predictive capabilities, ultimately contributing to more effective and efficient revenue collection practices.
+
+### Ethical Considerations
+- The integration of ethical and social considerations into model design and interpretation is a fundamental necessity. Indeed, our commitment to ethical AI necessitates a holistic approach that encompasses more than just the technical aspects of model building and includes a deeper grasp of the societal impact of these technologies. On reflecting on the broader impacts of our model's predictions, we recognize that it is paramount to engage with domain experts, policymakers, and potentially affected communities to understand the real-world implications of model decisions. This step is crucial in bridging the gap between theoretical model outcomes and real-world implication. For instance, understanding from policymakers and domain experts the implications of revenue forecasts on public services, and from communities how these services (or the lack thereof) affect their lives, can guide the development of models that serve the public interest.
+
+- Furthermore, the ethical deployment of AI systems requires the establishment of continuous monitoring frameworks to ensure that models remain aligned with societal values and norms over time. This can be achieved by defining ethical guidelines, developing monitoring metrics, regular assessment, stakeholder engagement and transparency, and regulatory compliance. This adaptive approach will ensure that the model remains aligned with ethical guidelines and public expectations over time. Our commitment to ethics also entails transparency about the limitations of models and the uncertainties in their predictions. Transparently addressing these elements can cultivate confidence and empower better decision-making among all relevant stakeholders. This is also to acknowledge that while machine models are incredibly powerful, they are not infallible and must be viewed as one of many tools in policy making and governance. Ultimately, the goal of incorporating ethical and social considerations into AI is to ensure that these technologies contribute positively to society. In doing so, we can harness the capabilities of AI to create more equitable, just, and prosperous societies.
 
 ## G. Collaboration
 
