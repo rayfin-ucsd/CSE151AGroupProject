@@ -70,7 +70,7 @@ Processing the data:
 - We used the StandardScaler from scikit-learn to normalize 'Record Date Discretized'
 - These columns are also one-hot encoded: 'Calendar Year', 'Calendar Quarter Number', 'Calendar Month Number', 'Calendar Day Number', 'Fiscal Quarter Number', 'Fiscal Year'.
 - We used uniform discretization on the target.
-- RandomUnderSampler from scikit-learn was used to undersample since data skews too heavily towards one class.
+- RandomUnderSampler from imblearn was used to undersample since data skews too heavily towards one class.
 - Splitted the data into training and testing sets with the ratio of 90:10.
 
 Implementing our Neural Network:
@@ -294,10 +294,17 @@ Figure n. Our training vs. validation loss curve for the classification model
 
 ### Method 3: 3-Hidden Layer Neural Network Regressor
 
-- Present the key findings of your analysis.
-- Use visualizations (charts, graphs) to effectively communicate the results.
-- Include tables or metrics to quantify your findings when appropriate.
-- Discuss the performance of your models or the validity of your hypothesis.
+- Test MAE: 0.1998300999403
+- Train MAE: 0.19066426157951355
+
+![image](assets/model3fitting.png)
+Figure n. Our training vs. validation loss curve for the regression model
+
+![image](assets/model3learningrate.png)
+Figure n. Our learning rate during training for the regression model
+
+![image](assets/model3testpredict.png)
+Figure n. Plotting our model's prediction against the test dataset over record date
 
 ## E. Discussion
 
