@@ -387,7 +387,7 @@ We acheived a final train/test MAE of ~.19 which meant our model was capable of 
 - Aritra Ghosh - Contributed valuable insights, helped write signifiant parts in the readme, and proofread during all the milestones.
 - Scott Webster - Title:
 - Peter Chang - Proofread and made adjustments to model 1 analysis and readme, assisted in fixing performance issues for the second model, and proofread and double checked against submission guidelines for all milestones.
-- Yuhang Jiang - Title:
+- Yuhang Jiang - Contributed to preprocessing, built and trained the model-dense, and evaluated the model.
 - Milo Nguyen - Title:
 - Trevor Tran - Worked on evaluations for the first model, helped with final README writeup
 - Michael Lue - Imported dataset and processed into DataFrame, examined data characteristics and conducted various EDA aggregations.
