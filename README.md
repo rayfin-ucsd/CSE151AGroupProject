@@ -223,7 +223,7 @@ Figure n. Net Collections Amount by Tax Category Description
 ![Pasted image 20240313191108.png](assets/Pasted%20image%2020240313191108.png)
 Figure n. Average Net Collections Amount by Fiscal Year
 
-### Method 1: Linear Regression
+### Model 1: Linear Regression
 
 - Training MSE: 9.921680122975543e+18
 - Test MSE: 8.863121770208695e+18
@@ -239,7 +239,7 @@ Figure n. Average Net Collections Amount by Fiscal Year
 
 Figure n. Scatterplots comparing True Value vs Prediction of each feature.
 
-### Method 2: 3-Hidden Layer Neural Network Classifier
+### Model 2: 3-Hidden Layer Neural Network Classifier
 
 - Test accuracy 0.882727852135118
 - Train accuracy 0.9061857861546092
@@ -292,7 +292,7 @@ Figure n. Our training vs. validation loss curve for the classification model
         0.9004605 , 0.9025859 , 0.90329437, 0.8990078 , 0.89794472])}
 ```
 
-### Method 3: 3-Hidden Layer Neural Network Regressor
+### Model 3: 3-Hidden Layer Neural Network Regressor
 
 - Test MAE: 0.1998300999403
 - Train MAE: 0.19066426157951355
@@ -306,12 +306,12 @@ Figure n. Our learning rate during training for the regression model
 ![image](assets/model3testpredict.png)
 Figure n. Plotting our model's prediction against the test dataset over record date
 
-## E. Discussion
+## E. Discussion (Overall)
 
 In our analysis of the U.S. Government Revenue Collections, we explored a variety of methods and techniques all the way from data preprocessing to model application. Initially, we weren't sure what variables would contribute the most to predicting future revenue collections, but through exploratory data analysis, we identified key predictors such as fiscal quarter, electronic category, and channel type. After cleaning and processing, and through identifying key variables, we were able to start model creation. Our first attempt wasn't great, and highlighted the limitations of linear regression for our complex dataset, particularly in capturing the nonlinear relationships between predictors and revenue collections. This guided our next attempts at modeling, by using more complicated models (i.e., neural networks), which allowed for a more nuanced prediction of future revenue collections. The accuracy of Model 2/3 were significantly better, as the deep learning techniques implemented in Model 2/3 adapted more flexibly to the dataset, capturing complex patterns that linear models could not. If we were to continue further creating a new model, a next step would be to explore hybrid models that combine both deep neural networks and traditional statistical methods, such as ensemble techniques or boosting methods. These could offer even greater predictive accuracy and robustness by leveraging both approaches. Overall, this project has showcased the importance of flexibility in model selection and the value of iteratively testing out different methods.
 
 
-### Exploratory data analysis (EDA)
+### Exploratory data analysis (EDA Discussion)
 
 The frequency tables reveal that most of the revenue comes from certain categories (IRS Tax and Non-Tax) which confirms our hypothesis that certain avenues are more profitable than others.
 
@@ -321,7 +321,7 @@ The scatterplot of Net Collections Amount from 2004 - 2024 reveals that the majo
 
 This poses the questions: does this correspond to the increasing income inequality? Or did the government become more effective at collecting taxes?
 
-### Data Preprocessing
+### Data Preprocessing (Discussion)
 
 We hypothesized that the Fiscal Quarter would be a helpful feature in predicting the revenue, so we kept the information.
 
@@ -338,7 +338,7 @@ The significant rise in collections could be partially attributed to the growth 
 
 It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
-### Method 1: Linear Regression
+### Model 1: Linear Regression (Discussion)
 
 The very high MSE and MAE for both the testing and training sets indicate **underfitting.** Linear regression using just one feature is too simple to predict future revenues.
 
@@ -348,7 +348,7 @@ To implement this, we propose changing Net Collections Amount into predefined cl
 
 For categories such as Channel Type, Tax Category, we can try feature engineering to implement neural networks that can improve our prediction accuracy.
 
-### Method 2: 3-Hidden Layer Neural Network Classifier
+### Model 2: 3-Hidden Layer Neural Network Classifier (Discussion)
 
 The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicate that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this.
 
@@ -360,7 +360,14 @@ When tuning this model, we found that the model would frequently get stuck outpu
 
 5-fold cross validation yielded promising test scores for this iteration. So far, our second model has yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
 
-### Method 3: 3-Hidden Layer Neural Network Regressor
+### Model 3: 3-Hidden Layer Neural Network Regressor (Discussion)
+
+This model acheived the best train/test MAE. It used the strengths of a 3-hidden layer neural network regressors and Leaky ReLU activation + dropout regularization to mitigate overfitting.
+
+We found that layers of size 128, 512, and 128 were the best for this NN. 
+
+We acheived a final train/test MAE of ~.19 which meant our model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections
+
 
 ## F. Conclusion
 
