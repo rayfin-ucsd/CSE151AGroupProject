@@ -385,7 +385,7 @@ We acheived a final train/test MAE of ~.19 which meant our model was capable of 
 
 - Rehan Ali - Created Discord Server, helped with organization, performed a variety of analysies in the EDA section and helped write significant parts of the readme during all the milestones.
 - Aritra Ghosh - Contributed valuable insights, helped write signifiant parts in the readme, and proofread during all the milestones.
-- Scott Webster - Wrote introduction to old README, cleaned/formatted data, wrote K-Fold cross validation, wrote (unused) hyperparameter tuning, streamlined Github workflow.
+- Scott Webster - Wrote introduction to old README, cleaned/formatted data, wrote K-Fold cross validation, wrote (unused) hyperparameter tuning, streamlined Github workflow, and made (lots of) charts. 
 - Peter Chang - Proofread and made adjustments to model 1 analysis and readme, assisted in fixing performance issues for the second model, and proofread and double checked against submission guidelines for all milestones.
 - Yuhang Jiang - Contributed to preprocessing, built and trained the model-dense, and evaluated the model.
 - Milo Nguyen - Title:
