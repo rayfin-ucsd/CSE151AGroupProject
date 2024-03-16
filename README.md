@@ -12,7 +12,7 @@ Peter Chang <p7chang@ucsd.edu>,
 
 Yuhang Jiang <yuj052@ucsd.edu>,
 
-Milo Nguyen <mtn022@ucsd.edu>,
+Milo Nguyen <mtn022@ucsd.edu> (Github: SaltySharky),
 
 Trevor Tran <trt004@ucsd.edu> (Github: trevtsd),
 
@@ -20,7 +20,7 @@ Michael Lue <mlue@ucsd.edu>,
 
 Jeffrey Do <jtdo@ucsd.edu>,
 
-Joseph Kan <jokan@ucsd.edu> (Github: Person1234565)
+Joseph Kan <jokan@ucsd.edu> (Github: Person1234565).
 
 **Date**
 03-13-2024
@@ -29,13 +29,15 @@ Joseph Kan <jokan@ucsd.edu> (Github: Person1234565)
 
 This project aims to explore the "U.S. Government Revenue Collections" dataset from Kaggle, and use it in supervised machine learning models to predict future revenues.
 
-The data give insights to where the federal revenues come from, and how much comes from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit. Not to mention, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenue collecting strategies, ensuring financial stability and growth.
+The data give insights to where the federal revenues come from, and how much comes from tax contributions or national services, etc. A good prediction of future revenues compared to budget spending in a given year can help the government address the federal deficit.
+
+Furthermore, accurately forecasting revenue allows for more informed policy decisions, ultimately leading to efficient government spending and investment. These insights can help guide and enhance revenue collecting strategies, ensuring financial stability and growth.
 
 We hypothesize that certain categories and channel types, as well as the date of collection affect the net revenue amount collected.
 
 ## B. Figures
 
-(any suggestion for key figures?)
+(results from the three models to be added)
 
 ## C. Methods
 
@@ -104,6 +106,26 @@ results = cross_validate(converted_classifier, x_train_class, y_train_class, cv=
 ```
 
 ### Method 3:
+
+Processing the data:
+- We used data from the the file `data.processed.csv`.
+- We treated 'Fiscal Year' and 'Record Date Discretized' as numbers and standardize them.
+- Month and Quarter were treated as categories in order to discover trends related to a specific Quarter or Month.
+- Data was normalized and one-hot encoded like Method 2.
+- Splitted the data into training and testing sets with the ratio of 99:1.
+
+Implementing a better Neural Network:
+- We used Leaky ReLU activation function and Dropout (0.25) regulization technique on each Dense hidden layer.
+- Layer 1: 128 units
+- Layer 2: 512 units
+- Layer 3: 128 units
+- Batch normalization was also used to improve the performance and stability on all hidden layers.
+
+We would stop the training process early if the conditions were met:
+```
+early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
+)
+```
 
 ## D. Results
 
