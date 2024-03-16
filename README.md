@@ -56,14 +56,14 @@ We hypothesize that certain categories and channel types, as well as the date of
 - Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
 - We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
-### Method 1: Linear Regression
+### Model 1: Linear Regression
 
 - We used one-hot encoding on these categories: 'Electronic Category ID', 'Channel Type ID', 'Tax Category ID'.
 - Splitted the data into training and testing sets with the ratio of 80:20.
 - Plotted the prediction versus the true value on a scatterplot for each feature.
 - Analyzed the Mean Squared Error (MSE), and Mean Absolute Error (MAE) on the training and testing set.
 
-### Method 2: 3-Hidden Layer Neural Network Classifier
+### Model 2: 3-Hidden Layer Neural Network Classifier
 
 Processing the data:
 
@@ -105,7 +105,7 @@ kfold = RepeatedKFold(n_splits = 5, n_repeats = 5)
 results = cross_validate(converted_classifier, x_train_class, y_train_class, cv=kfold, n_jobs = 1)
 ```
 
-### Method 3: 3-Hidden Layer Neural Network Regressor
+### Model 3: 3-Hidden Layer Neural Network Regressor
 
 Processing the data:
 
@@ -309,7 +309,6 @@ Figure n. Plotting our model's prediction against the test dataset over record d
 ## E. Discussion
 
 In our analysis of the U.S. Government Revenue Collections, we explored a variety of methods and techniques all the way from data preprocessing to model application. Initially, we weren't sure what variables would contribute the most to predicting future revenue collections, but through exploratory data analysis, we identified key predictors such as fiscal quarter, electronic category, and channel type. After cleaning and processing, and through identifying key variables, we were able to start model creation. Our first attempt wasn't great, and highlighted the limitations of linear regression for our complex dataset, particularly in capturing the nonlinear relationships between predictors and revenue collections. This guided our next attempts at modeling, by using more complicated models (i.e., neural networks), which allowed for a more nuanced prediction of future revenue collections. The accuracy of Model 2/3 were significantly better, as the deep learning techniques implemented in Model 2/3 adapted more flexibly to the dataset, capturing complex patterns that linear models could not. If we were to continue further creating a new model, a next step would be to explore hybrid models that combine both deep neural networks and traditional statistical methods, such as ensemble techniques or boosting methods. These could offer even greater predictive accuracy and robustness by leveraging both approaches. Overall, this project has showcased the importance of flexibility in model selection and the value of iteratively testing out different methods.
-
 
 
 ### Exploratory data analysis (EDA)
