@@ -331,6 +331,8 @@ We also kept the columns: Calendar Year Number, Calendar Quarter Number, Calenda
 3. Calendar Year Number, Calendar Quarter Number,
 4. Others
 
+We experienced first-hand the importance of scaling and encoding data, with our classification model suffering from extremely low accuracy initially because we neglected to encode date information. After performing one-hot encoding for those categories, the model's accuracy improved significantly.
+
 To understand the revenue collections trend further, we plotted a line chart showing the average Net Collections Amount by fiscal year. This revealed a pattern consistent with a post-pandemic economic recovery. However, a closer look suggests a more nuanced story.
 
 The significant rise in collections could be partially attributed to the growth of specific sectors like e-commerce (e.g., Amazon) and video conferencing (e.g., Zoom) that boomed during COVID-19. The dip at the end of 2021, reflects the decreasing revenue of the above sectors, which might be the reason for multiple layoffs since then.
@@ -365,12 +367,10 @@ This model acheived the best train/test MAE. It used the strengths of a 3-hidden
 
 We found that layers of size 128, 512, and 128 were the best for this NN.
 
-We acheived a final train/test MAE of ~.19 which meant our model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections
+We acheived a final train/test MAE of ~.19 which meant our model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections.
 
 ## F. Conclusion
 
-- Summarize the main takeaways of your project.
-- This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
 - \***\*Complexity - Interpretability Tradeoff\*\***
   - The transition to a neural network-based classification method significantly enhanced our predictive capabilities. It is worth noting that this implementation came with a heavy cost to interpretability, since neural networks, particularly deep ones, can act as "black boxes," making it difficult to truly gain a thorough understanding of how they make predictions. In the future, it is key that we balance complexity with interpretability. To this end, future projects could explore models like Decision Trees, Random Forests, or Gradient Boosting Machines (GBMs). These models can offer a compromise, providing both the ability to handle complex, nonlinear relationships and more transparency in how decisions are made. Utilizing techniques such as SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations) could give us more nuanced insights into the decision making process of more complex models.
   - Expanding the use of SHAP and LIME by incorporating them into a regular part of the modeling workflow, not just as a post-hoc analysis tool could involve developing pipelines that automatically generate interpretability reports for each model iteration, leaving us in a better position to analyze the impacts of feature engineering and model parameter adjustments. It might also be in our advantage to explore advanced ensemble techniques such as XGBoost, LightGBM, and CatBoost, given their robustness and efficacy with larger datasets.
