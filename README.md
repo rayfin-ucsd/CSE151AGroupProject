@@ -112,7 +112,7 @@ Processing the data:
 - We used data from the the file `data.processed.csv`.
 - We treated 'Fiscal Year' and 'Record Date Discretized' as numbers and standardize them.
 - Month and Quarter were treated as categories in order to discover trends related to a specific Quarter or Month.
-- Data was normalized and one-hot encoded like Method 2.
+- Data was normalized and one-hot encoded like Model 2.
 - Splitted the data into training and testing sets with the ratio of 99:1.
 
 Implementing a better Neural Network:
@@ -308,8 +308,7 @@ Figure n. Plotting our model's prediction against the test dataset over record d
 
 ## E. Discussion (Overall)
 
-In our analysis of the U.S. Government Revenue Collections, we explored a variety of methods and techniques all the way from data preprocessing to model application. Initially, we weren't sure what variables would contribute the most to predicting future revenue collections, but through exploratory data analysis, we identified key predictors such as fiscal quarter, electronic category, and channel type. After cleaning and processing, and through identifying key variables, we were able to start model creation. Our first attempt wasn't great, and highlighted the limitations of linear regression for our complex dataset, particularly in capturing the nonlinear relationships between predictors and revenue collections. This guided our next attempts at modeling, by using more complicated models (i.e., neural networks), which allowed for a more nuanced prediction of future revenue collections. The accuracy of Model 2/3 were significantly better, as the deep learning techniques implemented in Model 2/3 adapted more flexibly to the dataset, capturing complex patterns that linear models could not. If we were to continue further creating a new model, a next step would be to explore hybrid models that combine both deep neural networks and traditional statistical methods, such as ensemble techniques or boosting methods. These could offer even greater predictive accuracy and robustness by leveraging both approaches. Overall, this project has showcased the importance of flexibility in model selection and the value of iteratively testing out different methods.
-
+In our analysis of the U.S. Government Revenue Collections, we explored a variety of models and techniques all the way from data preprocessing to model application. Initially, we weren't sure what variables would contribute the most to predicting future revenue collections, but through exploratory data analysis, we identified key predictors such as fiscal quarter, electronic category, and channel type. After cleaning and processing, and through identifying key variables, we were able to start model creation. Our first attempt wasn't great, and highlighted the limitations of linear regression for our complex dataset, particularly in capturing the nonlinear relationships between predictors and revenue collections. This guided our next attempts at modeling, by using more complicated models (i.e., neural networks), which allowed for a more nuanced prediction of future revenue collections. The accuracy of Model 2/3 were significantly better, as the deep learning techniques implemented in Model 2/3 adapted more flexibly to the dataset, capturing complex patterns that linear models could not. If we were to continue further creating a new model, a next step would be to explore hybrid models that combine both deep neural networks and traditional statistical methods, such as ensemble techniques or boosting methods. These could offer even greater predictive accuracy and robustness by leveraging both approaches. Overall, this project has showcased the importance of flexibility in model selection and the value of iteratively testing out different methods.
 
 ### Exploratory data analysis (EDA Discussion)
 
@@ -364,10 +363,9 @@ When tuning this model, we found that the model would frequently get stuck outpu
 
 This model acheived the best train/test MAE. It used the strengths of a 3-hidden layer neural network regressors and Leaky ReLU activation + dropout regularization to mitigate overfitting.
 
-We found that layers of size 128, 512, and 128 were the best for this NN. 
+We found that layers of size 128, 512, and 128 were the best for this NN.
 
 We acheived a final train/test MAE of ~.19 which meant our model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections
-
 
 ## F. Conclusion
 
