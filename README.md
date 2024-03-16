@@ -37,7 +37,7 @@ We hypothesize that certain categories and channel types, as well as the date of
 
 ## B. Figures
 
-Figures for each model are placed in their respective sections.
+Please refer to section **D. Results** for key figures.
 
 ## C. Methods
 
@@ -115,19 +115,33 @@ Processing the data:
 - Data was normalized and one-hot encoded like Model 2.
 - Splitted the data into training and testing sets with the ratio of 99:1.
 
-Implementing a better Neural Network:
+Implementing a Neural Network regressor:
 
 - We used Leaky ReLU activation function and Dropout (0.25) regulization technique on each Dense hidden layer.
 - Layer 1: 128 units
 - Layer 2: 512 units
 - Layer 3: 128 units
 - Batch normalization was also used to improve the performance and stability on all hidden layers.
+- We used SoftMax activation on the output layer and made sure that it had the same shape as our target
+- Adam optimization algorithm and Mean Squared Error Loss Function were used in this model
 
 We would stop the training process early if the conditions were met:
-
 ```
 early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
-)
+```
+ModelCheckpoint was also implemented to monitor the validation loss.
+```
+model_checkpoint = ModelCheckpoint('model.keras', monitor='val_loss', save_best_only=True)
+```
+Training the third model:
+
+```
+history = model.fit(X_train, y_train, 
+                    validation_split=0.05,
+                    epochs=100,
+                    batch_size=256,
+                    callbacks=[early_stopping, model_checkpoint, reduce_lr],
+                    verbose=False)
 ```
 
 ## D. Results
@@ -306,11 +320,9 @@ Figure n. Our learning rate during training for the regression model
 ![image](assets/model3testpredict.png)
 Figure n. Plotting our model's prediction against the test dataset over record date
 
-## E. Discussion (Overall)
+## E. Discussion
 
-In our analysis of the U.S. Government Revenue Collections, we explored a variety of models and techniques all the way from data preprocessing to model application. Initially, we weren't sure what variables would contribute the most to predicting future revenue collections, but through exploratory data analysis, we identified key predictors such as fiscal quarter, electronic category, and channel type. After cleaning and processing, and through identifying key variables, we were able to start model creation. Our first attempt wasn't great, and highlighted the limitations of linear regression for our complex dataset, particularly in capturing the nonlinear relationships between predictors and revenue collections. This guided our next attempts at modeling, by using more complicated models (i.e., neural networks), which allowed for a more nuanced prediction of future revenue collections. The accuracy of Model 2/3 were significantly better, as the deep learning techniques implemented in Model 2/3 adapted more flexibly to the dataset, capturing complex patterns that linear models could not. If we were to continue further creating a new model, a next step would be to explore hybrid models that combine both deep neural networks and traditional statistical methods, such as ensemble techniques or boosting methods. These could offer even greater predictive accuracy and robustness by leveraging both approaches. Overall, this project has showcased the importance of flexibility in model selection and the value of iteratively testing out different methods.
-
-### Exploratory data analysis (EDA Discussion)
+### Exploratory data analysis
 
 The frequency tables reveal that most of the revenue comes from certain categories (IRS Tax and Non-Tax) which confirms our hypothesis that certain avenues are more profitable than others.
 
@@ -320,7 +332,7 @@ The scatterplot of Net Collections Amount from 2004 - 2024 reveals that the majo
 
 This poses the questions: does this correspond to the increasing income inequality? Or did the government become more effective at collecting taxes?
 
-### Data Preprocessing (Discussion)
+### Data Preprocessing
 
 We hypothesized that the Fiscal Quarter would be a helpful feature in predicting the revenue, so we kept the information.
 
@@ -339,7 +351,7 @@ The significant rise in collections could be partially attributed to the growth 
 
 It's important to acknowledge limitations here. A single data point (fiscal year) might be influencing the observed linear trend. Additionally, Net Collections encompass various sources beyond just income tax.
 
-### Model 1: Linear Regression (Discussion)
+### Model 1: Linear Regression
 
 The very high MSE and MAE for both the testing and training sets indicate **underfitting.** Linear regression using just one feature is too simple to predict future revenues.
 
@@ -349,7 +361,7 @@ To implement this, we propose changing Net Collections Amount into predefined cl
 
 For categories such as Channel Type, Tax Category, we can try feature engineering to implement neural networks that can improve our prediction accuracy.
 
-### Model 2: 3-Hidden Layer Neural Network Classifier (Discussion)
+### Model 2: 3-Hidden Layer Neural Network Classifier
 
 The model achieved very close training and testing accuracy, 89% and 88% respectively. The small error values indicate that there is little underfitting or overfitting. Plotting out the training plot versus the validation loss also confirms this.
 
@@ -361,13 +373,13 @@ When tuning this model, we found that the model would frequently get stuck outpu
 
 5-fold cross validation yielded promising test scores for this iteration. So far, our second model has yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
 
-### Model 3: 3-Hidden Layer Neural Network Regressor (Discussion)
+### Model 3: 3-Hidden Layer Neural Network Regressor
 
-This model acheived the best train/test MAE. It used the strengths of a 3-hidden layer neural network regressors and Leaky ReLU activation + dropout regularization to mitigate overfitting.
+Using Leaky ReLU for as our activation functions instead of ReLU significantly improved our prediction results. This method introduces a small slope (or leak) for negative inputs, instead of setting them to zero as in the traditional ReLU function. Therefore, we avoided the problem of some neurons becoming inactive during training.
 
-We found that layers of size 128, 512, and 128 were the best for this NN.
+Further hyperparameter tuning tests reveal that the hidden layers having 128, 512, and 128 units respectively were optimal for this Neural Network. Implementing Dropout regulization also mitigated overfitting. 
 
-We acheived a final train/test MAE of ~.19 which meant our model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections.
+As a result, we achieved the best training and testing MAE with this model. The final train/test MAE of `~.19` indicated that model was capable of making predictions with a high degree of accuracy, making it suitable for forecasting future revenue collections.
 
 ## F. Conclusion
 
@@ -388,7 +400,7 @@ We acheived a final train/test MAE of ~.19 which meant our model was capable of 
 - Scott Webster - Wrote introduction to old README, cleaned/formatted data, wrote K-Fold cross validation, wrote (unused) hyperparameter tuning, streamlined Github workflow, and made (lots of) charts. 
 - Peter Chang - Proofread and made adjustments to model 1 analysis and readme, assisted in fixing performance issues for the second model, and proofread and double checked against submission guidelines for all milestones.
 - Yuhang Jiang - Contributed to preprocessing, built and trained the model-dense, and evaluated the model.
-- Milo Nguyen - Title:
+- Milo Nguyen - In charge of writing and finalizing the final report (README.md). Studied and reviewed each milestone and model to understand the implementation and write the subsections for them. Added figures and tables.
 - Trevor Tran - Worked on evaluations for the first model, helped with final README writeup
 - Michael Lue - Imported dataset and processed into DataFrame, examined data characteristics and conducted various EDA aggregations.
 - Joseph Kan - Searched for datasets, wrote the abstracts, plotted some visuals for EDA, did preprocessing for the classification model, coded the second model, wrote parts of README and proofread for all milestones.
