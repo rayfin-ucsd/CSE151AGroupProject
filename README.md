@@ -63,7 +63,7 @@ We hypothesize that certain categories and channel types, as well as the date of
 - Plotted the prediction versus the true value on a scatterplot for each feature.
 - Analyzed the Mean Squared Error (MSE), and Mean Absolute Error (MAE) on the training and testing set.
 
-### Method 2: 3-Hidden Layer Neural Network
+### Method 2: 3-Hidden Layer Neural Network Classifier
 
 Processing the data:
 
@@ -105,9 +105,10 @@ kfold = RepeatedKFold(n_splits = 5, n_repeats = 5)
 results = cross_validate(converted_classifier, x_train_class, y_train_class, cv=kfold, n_jobs = 1)
 ```
 
-### Method 3:
+### Method 3: 3-Hidden Layer Neural Network Regressor
 
 Processing the data:
+
 - We used data from the the file `data.processed.csv`.
 - We treated 'Fiscal Year' and 'Record Date Discretized' as numbers and standardize them.
 - Month and Quarter were treated as categories in order to discover trends related to a specific Quarter or Month.
@@ -115,6 +116,7 @@ Processing the data:
 - Splitted the data into training and testing sets with the ratio of 99:1.
 
 Implementing a better Neural Network:
+
 - We used Leaky ReLU activation function and Dropout (0.25) regulization technique on each Dense hidden layer.
 - Layer 1: 128 units
 - Layer 2: 512 units
@@ -122,6 +124,7 @@ Implementing a better Neural Network:
 - Batch normalization was also used to improve the performance and stability on all hidden layers.
 
 We would stop the training process early if the conditions were met:
+
 ```
 early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
 )
@@ -289,7 +292,7 @@ Figure n. Our training vs. validation loss curve for the classification model
         0.9004605 , 0.9025859 , 0.90329437, 0.8990078 , 0.89794472])}
 ```
 
-### Method 3:
+### Method 3: 3-Hidden Layer Neural Network Regressor
 
 - Present the key findings of your analysis.
 - Use visualizations (charts, graphs) to effectively communicate the results.
@@ -347,7 +350,7 @@ When tuning this model, we found that the model would frequently get stuck outpu
 
 5-fold cross validation yielded promising test scores for this iteration. So far, our second model has yielded much better results than our first one and confirmed that classification is the appropriate approach for this dataset.
 
-### Method 3:
+### Method 3: 3-Hidden Layer Neural Network Regressor
 
 ## F. Conclusion
 
