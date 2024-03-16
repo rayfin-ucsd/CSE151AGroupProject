@@ -37,7 +37,7 @@ We hypothesize that certain categories and channel types, as well as the date of
 
 ## B. Figures
 
-(results from the three models to be added)
+Figures for each model are placed in their respective sections.
 
 ## C. Methods
 
