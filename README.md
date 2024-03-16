@@ -47,14 +47,14 @@ Figures for each model are placed in their respective sections.
 - We also used heatmaps to visualize correlations between multiple variables.
 - Frequency tables were used to show the distribution of categorical data points.
 - Scatterplot was used to identify data points that deviate significantly from the majority.
+- We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Data Preprocessing
 
 - Checked for null values and dropped duplicate entries.
-- Dropped columns: 'Source Line Number', 'Electronic Category Description', 'Channel Type Description', 'Tax Category Description'.
+- Dropped columns 'Source Line Number', 'Electronic Category Description', 'Channel Type Description', 'Tax Category Description' since they were already label encoded in the dataset
 - 'Record Date' feature is discretized into an integer. For example, the oldest entry is at day 0, and the latest entry is at day 7026. This will help us model the relationship between the date of collection and the revenue (target class).
 - Removed string features and kept encoded integers including the 'Fiscal Quarter Number'.
-- We used a line chart to investigate Net Collection Amounts by Fiscal Year.
 
 ### Model 1: Linear Regression
 
