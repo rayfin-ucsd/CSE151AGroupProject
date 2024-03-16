@@ -391,5 +391,4 @@ We acheived a final train/test MAE of ~.19 which meant our model was capable of 
 - Milo Nguyen - Title:
 - Trevor Tran - Worked on evaluations for the first model, helped with final README writeup
 - Michael Lue - Imported dataset and processed into DataFrame, examined data characteristics and conducted various EDA aggregations.
-- Jeffrey Do - Title:
 - Joseph Kan - Searched for datasets, wrote the abstracts, plotted some visuals for EDA, did preprocessing for the classification model, coded the second model, wrote parts of README and proofread for all milestones.
