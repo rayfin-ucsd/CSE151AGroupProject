@@ -10,7 +10,7 @@ Scott Webster <s1webste@ucsd.edu>,
 
 Peter Chang <p7chang@ucsd.edu>,
 
-Yuhang Jiang <yuj052@ucsd.edu>,
+Yuhang Jiang <yuj052@ucsd.edu> (Github: scripe2022),
 
 Milo Nguyen <mtn022@ucsd.edu> (Github: SaltySharky),
 
